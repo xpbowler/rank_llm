@@ -10,11 +10,8 @@ from rank_llm.rerank import (
 )
 from rank_llm.rerank.listwise import RankListwiseOSLLM, SafeOpenai
 from rank_llm.rerank.pointwise.monot5 import MonoT5
-<<<<<<< HEAD
 from rank_llm.rerank.pointwise.mt5 import MT5
-=======
 from rank_llm.rerank.rankllm import RankLLM
->>>>>>> main
 
 
 class Reranker:
@@ -285,7 +282,6 @@ class Reranker:
                 batch_size=batch_size
             )
 
-<<<<<<< HEAD
         elif "mt5" in model_path:
             # using mt5
             print(f"Loading {model_path} ...")
@@ -317,8 +313,6 @@ class Reranker:
                 batch_size=batch_size
             )
 
-=======
->>>>>>> main
         elif model_path in ["unspecified", "rank_random", "rank_identity"]:
             # NULL reranker
             agent = None
