@@ -2,7 +2,7 @@ import logging
 import math
 from typing import List, Tuple
 
-from transformers import MT5ForConditionalGeneration, MT5Tokenizer
+from transformers import MT5ForConditionalGeneration, T5Tokenizer
 from transformers.generation import GenerationConfig
 
 from rank_llm.data import Result
@@ -28,7 +28,7 @@ class MT5(PointwiseRankLLM):
             batch_size=batch_size,
         )
 
-        self._tokenizer = MT5Tokenizer.from_pretrained(model)
+        self._tokenizer = T5Tokenizer.from_pretrained(model)
         self._llm = MT5ForConditionalGeneration.from_pretrained(model).to(self._device)
         self._context_size = context_size
 
@@ -70,8 +70,8 @@ class MT5(PointwiseRankLLM):
         ]
 
         for logit_tensor in batch_logits[0]:
-            truth_logit = logit_tensor[1176]
-            false_logit = logit_tensor[6136]
+            truth_logit = logit_tensor[36339]
+            false_logit = logit_tensor[375]
             score = math.exp(truth_logit) / (
                 math.exp(truth_logit) + math.exp(false_logit)
             )
