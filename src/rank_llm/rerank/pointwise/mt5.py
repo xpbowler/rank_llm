@@ -104,8 +104,8 @@ class MT5(PointwiseRankLLM):
         outputs = self._tokenizer.decode(
             output_ids, skip_special_tokens=True, spaces_between_special_tokens=False
         )
-        truth_logit = logits[0][0][1176]
-        false_logit = logits[0][0][6136]
+        truth_logit = logits[0][0][36339]
+        false_logit = logits[0][0][375]
         score = math.exp(truth_logit) / (math.exp(truth_logit) + math.exp(false_logit))
 
         return outputs, output_ids.size(0), score
